@@ -1,0 +1,33 @@
+{%extends 'padre.html'%}
+
+{%block bloque1%}
+<main>
+    <h2>Clientes Registrados</h2>
+    {%if cliente%}
+        <table class="table table-success table-striped"> 
+            <thead class="table table-dark table-striped">
+                <tr>
+                    <th> Nombre</th>
+                    <th> Apellido</th>
+                    <th> Registro</th>
+                    <th> Movil asignado</th>
+                </tr>
+            </thead>
+            {%for i in cliente%}
+                <tbody>
+                    <tr>
+                        <th> {{i.nombre}} </th>
+                        <th>  {{i.apellido }} </th>
+                        <th>  {{i.registro }} </th>
+                        <th>  {{i.movil_asignado}} </th>
+                    </tr>
+                </tbody>
+            {%endfor%}
+        </table>
+    {%endif%}
+
+    <form action="{% url 'cargar_cliente' %}" >
+        <input type="submit" value="Add Cliente">
+    </form>
+</main>
+{%endblock%}

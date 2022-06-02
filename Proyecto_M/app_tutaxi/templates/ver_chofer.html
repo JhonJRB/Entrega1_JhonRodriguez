@@ -1,0 +1,32 @@
+{%extends 'padre.html'%}
+
+{%block bloque1%}
+<main>
+   <h2>Conductores Registrados</h2>
+    {%if chofer%}
+        <table class="table table-success table-striped"> 
+            <thead class="table table-dark table-striped">
+                <tr>
+                    <th> Nombre</th>
+                    <th> Apellido</th>
+                    <th> Nacimiento</th>
+                    <th> Movil a cargo</th>
+                </tr>
+            </thead>
+            {%for i in chofer%}
+                <tbody>
+                    <tr>
+                        <th> {{i.nombre}} </th>
+                        <th>  {{i.apellido }} </th>
+                        <th>  {{i.nacimiento }} </th>
+                        <th>  {{i.movil_a_cargo}} </th>
+                    </tr>
+                </tbody>
+            {%endfor%}
+        </table>
+    {%endif%}
+    <form action="{% url 'cargar_chofer' %}" >
+        <input type="submit" value="Add Chofer">
+    </form>
+</main>
+{%endblock%}

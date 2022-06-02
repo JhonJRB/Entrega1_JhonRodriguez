@@ -1,0 +1,22 @@
+{%extends 'padre.html'%}
+
+{%block bloque1%}
+
+<main>
+   <form action="{% url 'cargar_movil' %}" method="POST">
+      {%csrf_token%}   
+      <p></p>
+      <p> Patente</p> 
+      <input type="text" name="patente">
+      <p> Marca</p>
+      <input type="text" name="marca">
+      <p> Modelo </p>
+      <input type="date" name="modelo"> 
+      <p></p>
+      <p> ID Conductor a cargo</p>
+      <input type="number" name="chofer_asignado">
+      <input type="submit" value="Enviar">
+   </form>
+</main>
+
+{%endblock%}

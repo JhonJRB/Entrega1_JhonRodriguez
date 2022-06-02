@@ -1,0 +1,33 @@
+{%extends 'padre.html'%}
+
+{%block bloque1%}
+<main>
+    <h2>Vehiculos Registrados</h2>
+    {%if movil%}
+        <table class="table table-success table-striped"> 
+            <thead class="table table-dark table-striped">
+                <tr>
+                    <th> Patente</th>
+                    <th> Marca</th>
+                    <th> Modelo</th>
+                    <th> Chofer asignado</th>
+                </tr>
+            </thead>
+            {%for i in movil%}
+                <tbody>
+                    <tr>
+                        <th> {{i.patente}} </th>
+                        <th>  {{i.marca }} </th>
+                        <th>  {{i.modelo }} </th>
+                        <th>  {{i.chofer_asignado}} </th>
+                    </tr>
+                </tbody>
+            {%endfor%}
+        </table>
+    {%endif%}
+    
+    <form action="{% url 'cargar_movil' %}" >
+        <input type="submit" value="Add Movil">
+    </form>
+</main>
+{%endblock%}
